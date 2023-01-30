@@ -1,0 +1,46 @@
+{% extends "estudiantes/base.html" %}
+
+
+{% block subtitulo %} Inicio {% endblock subtitulo %}
+
+{% block contenido %}
+
+
+<a class="btn btn-primary" href="{% url 'login' %}">Iniciar</a>
+<a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+<head>
+    {% load static %}
+</head>
+
+
+<h1> 
+    Bienvenido {{ user.last_name }}, {{ user.first_name }}</h1>
+    <img src="{{ user.avatar.imagen.url}}"/>
+    <br> al sistema de 
+    control de estudio
+    <br>
+     de la universidad de la vida
+     <br>
+     <br>
+     <body>
+    <img src="{% static 'assets/img/bg-showcase-3.jpg' %} "width="300" height="300"/>
+    </body>
+
+     <br>
+     <br>
+     inicia sesión si eres personal administrativo
+     <br>
+     si eres nuevo personal registrate
+     <br>
+     
+     <a class="btn btn-primary" href="{% url 'registro' %}">Registro</a>
+     <br>
+
+     <br>
+    
+     <br>
+     
+
+</head>
+   
+{% endblock contenido %}

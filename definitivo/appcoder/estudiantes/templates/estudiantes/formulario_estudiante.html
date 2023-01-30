@@ -1,0 +1,18 @@
+{% extends "estudiantes/base.html" %}
+
+{% block subtitulo %}Editar Estudiante {% endblock subtitulo%}
+
+{% block contenido%}
+
+
+<form method="post">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Enviar"/>
+</form>
+
+<a href="{% url 'listar_cursos' %}">Volver a la lista</a>
+
+{% endblock contenido%}
+

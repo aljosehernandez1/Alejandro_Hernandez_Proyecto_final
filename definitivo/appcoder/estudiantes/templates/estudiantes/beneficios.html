@@ -1,0 +1,18 @@
+{% extends "estudiantes/base.html" %}
+
+{% block subtitulo %} Beneficios {% endblock subtitulo %}
+
+{% block contenido %}
+<a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+<br>20 dias de vacaciones
+<br>Aprendizaje continuo
+<br>Plan de salud
+<br>Elección de lugar de trabajo
+<br>
+<br>
+<br>
+<a class="btn btn-primary" href="{% url 'listar_cursos' %}">volver</a>
+<br>
+<br>
+
+{% endblock contenido %}

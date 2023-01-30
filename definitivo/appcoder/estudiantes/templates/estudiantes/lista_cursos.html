@@ -1,0 +1,65 @@
+{% extends "estudiantes/base.html" %}
+
+
+{% block subtitulo %}Lista de cursos{% endblock subtitulo%}
+
+{% block contenido%}
+<body>  
+    <nav class="navbar navbar-light bg-ligth static-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'listar_estudiantes' %}">Estudiantes</a>
+            <a class="navbar-brand" href="{% url 'beneficios' %}">Beneficios</a>
+            <a class="navbar-brand" href="{% url 'listar_proyectos' %}">Proyectos</a>
+            <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+            
+                         
+           
+        </div>
+    </nav>
+    </body>
+    <h1>Lista de Cursos</h1>
+    <a class="btn btn-primary" href="{% url 'crear_curso' %}">Crear Cursos</a>
+    <br>
+    <br>
+    <br>
+    <a class="btn btn-primary" href="{% url 'buscar_curso' %}">Buscar Cursos</a>
+    <br>
+
+   
+    <br>    
+    
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nombre</th>
+                <th>Comision</th>
+                <th>Duracion</th>
+                <td>Ver</td>
+                <td>Editar</td>
+                <td>Eliminar</td>
+            </tr>
+            {% for curso in cursos %}
+            
+            <tr>
+                <td>{{ curso.nombre}}</td>
+                <td>{{ curso.comision}}</td>
+                <td>{{ curso.duracion}}</td>
+            <td>
+                <a href="{% url 'ver_cursos' curso.id  %}">ver</a>
+            </td>
+            <td>
+                <a href="{% url 'editar_cursos' curso.id  %}">editar</a>
+            </td>
+            <td>
+               <form action="{% url 'eliminar_curso' curso.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Eliminar"/>
+               </form>
+            </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+
+{% endblock contenido%}

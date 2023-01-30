@@ -1,0 +1,14 @@
+{% extends "estudiantes/base.html" %}
+
+{% block contenido%}
+    <h1>Planes</h1>
+    <ul>
+    {% for pla in planes %}
+    <li>{{ pla.nombre }}, {{ pla.autor }}</li>
+    <p>
+        <img src="{{ elemento.imagen}}">
+    </p>
+    {% endfor %}
+  
+    </ul>
+{% endblock contenido%}
